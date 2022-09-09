@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+</head>
+
+<style>
+    .paragraph {
+        background-color: #000;
+        color: #fff;
+        font-size: 20px;
+        line-height: 30px;
+    }
+
+    #section {
+        border: 2px solid red;
+        background-color: #000;
+        padding: 20px;
+        color: #fff;
+    }
+</style>
+
+<body>
+
+    <!-- <p class="p_one">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, dolorum?</p>
+    <p class="p_one">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, dolorum?</p>
+    <p id="p_two">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, dolorum?</p>
+    <button id="hide">Hide</button>
+    <button id="show">show</button>
+    <button id="add">Add Calss</button>
+    <button id="remove">Remove Calss</button>
+
+    <p id="test">34564987 <strong>Admin</strong> 021321354687987</p>
+    <button id="btn1">Show Text</button>
+    <button id="btn2">Show HTML</button>
+
+    <p id="appendTextPara">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, tempore?</p>
+    <button id="add">Add Text</button> -->
+
+    <!-- <div id="section">
+        <p class="user">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus, dicta!</p>
+        <p class="admin">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus, dicta!</p>
+        <p class="user">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus, dicta!</p>
+        <p class="admin">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus, dicta!</p>
+        <p class="user">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus, dicta!</p>
+        <p class="admin">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus, dicta!</p>
+    </div>
+    <button id="btn">Click</button> -->
+
+
+
+    <script>
+        const userData = [
+            {
+                id: 1,
+                fName: 'Muhammad',
+                lName: 'Nabeel',
+                mail: 'nabeel@gmail.com'
+            },
+            {
+                id: 2,
+                fName: 'Usama',
+                lName: 'Ramzan',
+                mail: 'usama@gmail.com'
+            },
+            {
+                id: 3,
+                fName: 'Saad',
+                lName: 'Kalam',
+                mail: 'saad@gmail.com'
+            },
+            {
+                id: 4,
+                fName: 'Faraz',
+                lName: 'Khan',
+                mail: 'faraz@gmail.com'
+            },
+            {
+                id: 5,
+                fName: 'Zain',
+                lName: 'Saleem',
+                mail: 'zain@gmail.com'
+            },
+            {
+                id: 6,
+                fName: 'Zariyab',
+                lName: 'Khan',
+                mail: 'zariyab@gmail.com'
+            },
+            {
+                id: 7,
+                fName: 'Anees',
+                lName: 'khan',
+                mail: 'anees@gmail.com'
+            },
+            {
+                id: 8,
+                fName: 'Aamir',
+                lName: 'Ali',
+                mail: 'aamir@gmail.com'
+            },
+            {
+                id: 9,
+                fName: 'Ammar',
+                lName: 'Sheikh',
+                mail: 'ammar@gmail.com'
+            },
+        ]
+        userData.map(i => {
+            document.write(
+                `
+                <ul>
+                    <li>${i.id}</li>
+                    <li>${i.fName}</li>
+                    <li>${i.lName}</li>
+                    <li>${i.mail}</li>
+                </ul>
+                `
+                
+            )
+        })
+        // userData.map(i => {
+        //     document.write(
+        //         `<table id='userTable' border='1'>
+        //             <tbody>
+        //                 <tr>
+        //                     <td>${i.fName}</td>
+        //                     <td>${i.lName}</td>
+        //                     <td>${i.mail}</td>
+        //                 </tr>
+        //             </tbody>
+        //         </table>`
+                
+        //     )
+        // })
+        $(document).ready(function () {
+            $("#userInput").on("keyup", function () {
+                var data = $(this).val().toLowerCase();
+                console.log(data)
+                $("ul").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(data) > -1)
+                });
+            });
+        });
+
+        // $(document).ready(function () {
+            // $('#add').click(function () {
+            //     $('#appendTextPara').prepend('<li>Nabeel</li>')
+            // })
+            // $('#btn').click(function () {
+            //     $('#section .user').remove()
+            // })
+        // })
+
+        // $(document).ready(function () {
+        //     $("#btn1").click(function () {
+        //         alert("Text: " + $("#test").text());
+        //     });
+        //     $("#btn2").click(function () {
+        //         alert("HTML: " + $("#test").html());
+        //     });
+        // });
+
+        // $('#add').click(() => $('p').addClass('paragraph'))
+        // $('#remove').click(() => $('p').removeClass('paragraph'))
+
+        // $('#hide').click(function () {
+        //     $('#p_two').hide('slow', function () {
+        //         alert(5 + 4)
+        //     })
+        // })
+        // })
+        // $('#hide').click(() => $('p').hide( 3000 , () => alert('Hide')))
+        // $('#show').click(() => $('p').show(3000, () => alert('Show')))
+        // $('#toggle').click(() => $('p').slideToggle(() => alert('Toggle')))
+        // $('#toggle').click(() => $('p').fadeToggle())
+
+
+    </script>
+
+    
+
+    <div id="root">
+
+    </div>
+    <input id="userInput" type="text" placeholder="Search..">
+    <!-- <table>
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody id="userTable">
+        <tr>
+            <td>Muhammad</td>
+            <td>Nabeel</td>
+            <td>nabeel@gmail.com</td>
+        </tr>
+    </tbody>
+</table> -->
+
+</body>
+
+</html>
